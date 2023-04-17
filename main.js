@@ -26,11 +26,13 @@ function addPlayer() {
 
 //Adds a card to the bot's hand
 function addBot() {
+    //Fix this to be 0-11, deck.length can't choose 0 (meaning 1 will not be drawn like in res evil 7)
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     botHand.push(newCard);
     let i = newCard;
-    i = i-1
+    i = i-1;
     //Splice()
+    //Replace EVERY value chosen with a "0", then have an if statement that checks if 0 is chosen. It's worth noting that it doesn't select the position originally, but it makes the position through the i-1 bit.
 }
 
 //Ends the game when BOTH players have stayed
