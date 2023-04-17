@@ -19,8 +19,8 @@ function addPlayer() {
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     playerHand.push(newCard);
     let i = newCard;
-    i = i-1
-    remove deck[i];
+    i = i-1;
+    //remove deck[i];
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
@@ -30,7 +30,7 @@ function addBot() {
     botHand.push(newCard);
     let i = newCard;
     i = i-1
-    remove deck[i];
+    //remove deck[i];
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
