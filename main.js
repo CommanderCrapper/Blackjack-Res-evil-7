@@ -30,6 +30,10 @@ function addBot() {
     botHand.push(newCard);
     let i = newCard;
     i = i-1
+    //This won't work, since cards are actively being removed from the deck. If enough cards are removed from the deck, then the place number (the number assigned to the place of each number) of each individual value would change if it's greater than the number drawn.
+    
+    //Maybe find a way to make a card that's already in either the player's hand or the bot's hand not able to be drawn? I'm not sure how I'd do that, ig it'd probably be smth like "if this list contains this number, then reroll". Hell I could probably make a while loop for it.
+
     //remove deck[i];
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
