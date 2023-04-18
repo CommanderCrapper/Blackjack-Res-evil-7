@@ -2,6 +2,11 @@
 let playerHand = [];
 let botHand = [];
 
+//Determines trump card stuff, like their inventory & the chance of getting a trump card
+let trumpBot = [];
+let trumpPlayer = [];
+let trumpChance;
+
 //The entire deck, numbered 1-11
 let deck = [1,2,3,4,5,6,7,8,9,10,11];
 
@@ -15,29 +20,79 @@ let botStatus;
 
 //Adds a card to the player's hand
 function addPlayer() {
-    //first roll for a chance at a trump card. If it succeeds, addTrump(); then draw a card. If it fails, ignore & proceed to draw a card.
+    testTrump();
+    //if(trumpChance = some random number or smth) {
+        //addTrump();
+    //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     playerHand.push(newCard);
     let i = newCard;
+    while (i = 0) {
+        let newCard = deck[Math.floor(Math.random() * deck.length)];
+        if(i != 0) {
+            playerHand.push(newCard);
+        }
+    }
     i = i-1;
-    //remove deck[i];
+    delete newCard[i];
+    //This may or may not work? I'm not 100% sure since it doesn't specify a position to put the 0 in. I could be overthinking it, however it's worth noting
+    deck.concat(0);
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
 //Adds a card to the bot's hand
 function addBot() {
-    //Fix this to be 0-11, deck.length can't choose 0 (meaning 1 will not be drawn like in res evil 7)
+    testTrump();
+    //if(trumpChance = some random number or smth) {
+        //addTrump();
+    //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     botHand.push(newCard);
     let i = newCard;
+    while(i = 0) {
+        let newCard = deck[Math.floor(Math.random() * deck.length)];
+        if(i != 0) {
+            botHand.push(newCard);
+        }
+    }
     i = i-1;
-    //Splice()
-    //Replace EVERY value chosen with a "0", then have an if statement that checks if 0 is chosen. It's worth noting that it doesn't select the position originally, but it makes the position through the i-1 bit.
+    delete newCard[i];
+    //This may or may not work? I'm not 100% sure since it doesn't specify a position to put the 0 in. I could be overthinking it, however it's worth noting
+    deck.concat(0);
+    //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
 //Ends the game when BOTH players have stayed
 function endGame() {
-    //If player hand greater, & less than 21, player wins. If player hand over 21, loss no matter what. If bot hand greater & less than 21, bot wins. If bot hand over 21, win no matter what. If it's a tie, it's a tie.
+    if(playerStatus = "stay" && botStatus = "stay") {
+        if(playerValue > 21) {
+            loseGame();
+        } else if(botValue > 21) {
+            winGame();
+        } else if(playerValue > botValue && playerValue < 21) {
+            winGame();
+        } else if(playerValue < botValue && botValue < 21) {
+            loseGame();
+        } else if(playerValue = botValue) {
+            tieGame();
+        } else if(playerValue > 21 && botValue > 21) {
+            tieGame();
+        }
+    }
+}
+
+//Triggers when both player & bot stay, & player number is greater or bot number is over 21
+function winGame() {
+    //show win message, 
+}
+
+//Triggers when both players & bot stay, & player number is less than or player number is over 21
+function loseGame() {
+
+}
+
+function tieGame() {
+
 }
 
 //Creates a new game, adds 2 cards to each player's hand
@@ -54,8 +109,23 @@ function newCards() {
 }
 
 //Look up chances for trump card to be drawn, then add code that adds a trump card to the player's inventory then draws a card
-//Gives player a trump card, then adds a card
+
+//Tests to see if a player or bot draws a trump card
+function testTrump() {
+    //Math.floor(Math.random()
+    //if(trumpChance = some random number or number range) {
+        //return(trumpChance);
+    //}
+}
+
+
+//Gives player a random trump card
 function addTrump() {
+    
+}
+
+//Gives bot a random trump card
+function addTrumpBot() {
 
 }
 
@@ -71,20 +141,20 @@ function removeOppLast() {
 
 //Draws a 3 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw3() {
-
+    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
 }
 
 //Draws a 4 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw4() {
-
+    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
 }
 
 //Draws a 5 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw5() {
-
+    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
 }
 
 //Draws a 6 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw6() {
-
+    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
 }
