@@ -8,7 +8,7 @@ let trumpPlayer = [];
 let trumpChance;
 
 //The entire deck, numbered 1-11
-let deck = [1,2,3,4,5,6,7,8,9,10,11];
+let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 //The value of all the cards
 let playerValue;
@@ -40,6 +40,22 @@ function addPlayer() {
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
+//Player stays
+function playerStay() {
+    playerStatus = "stay";
+    if(playerStatus == "stay" && botStatus == "stay") {
+    endGame();
+    }
+}
+
+//Bot stays
+function botStay() {
+    botStatus = "stay";
+    if(playerStatus == "stay" && botStatus == "stay") {
+    endGame();
+    }
+}
+
 //Adds a card to the bot's hand
 function addBot() {
     testTrump();
@@ -57,46 +73,47 @@ function addBot() {
     }
     i = i-1;
     delete newCard[i];
-    //This may or may not work? I'm not 100% sure since it doesn't specify a position to put the 0 in. I could be overthinking it, however it's worth noting
-    deck.concat(0);
+    //This may or may not work? I'm not 100% sure if this is the correct way to give a location to replace. I could be overthinking it, however it's worth noting
+    deck[i].concat(0);
     //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
 }
 
 //Ends the game when BOTH players have stayed
 function endGame() {
-    if(playerStatus = "stay" && botStatus = "stay") {
-        if(playerValue > 21) {
-            loseGame();
-        } else if(botValue > 21) {
-            winGame();
-        } else if(playerValue > botValue && playerValue < 21) {
-            winGame();
-        } else if(playerValue < botValue && botValue < 21) {
-            loseGame();
-        } else if(playerValue = botValue) {
-            tieGame();
-        } else if(playerValue > 21 && botValue > 21) {
-            tieGame();
-        }
+    if(playerValue > 21) {
+        loseGame();
+    } else if(botValue > 21) {
+        winGame();
+    } else if(playerValue > botValue && playerValue < 21) {
+        winGame();
+    } else if(playerValue < botValue && botValue < 21) {
+        loseGame();
+    } else if(playerValue = botValue) {
+        tieGame();
+    } else if(playerValue > 21 && botValue > 21) {
+        tieGame();
     }
 }
 
 //Triggers when both player & bot stay, & player number is greater or bot number is over 21
 function winGame() {
-    //show win message, 
+    //show win message, displays play again button
 }
 
 //Triggers when both players & bot stay, & player number is less than or player number is over 21
 function loseGame() {
-
+    //show lose message, displays play again button
 }
 
 function tieGame() {
-
+    //Show tie message, displays play again button
 }
 
 //Creates a new game, adds 2 cards to each player's hand
 function newGame() {
+    let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    playerStatus = "";
+    botStatus = "";
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
     
 }
