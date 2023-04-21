@@ -130,7 +130,7 @@ function newCards() {
 function testTrump() {
     let trumpChance = Math.floor(Math.random() * 26) + 1;
     if(trumpChance == 1) {
-        //addTrump();
+        addTrump();
     } else {
     }
 }
@@ -138,17 +138,26 @@ function testTrump() {
 
 //Gives player a random trump card
 function addTrump() {
-    
+    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min; adjust these so they actually fit the normal cards you can receive)
+    //Randomly decide which trump card to choose, then add it to the deck based on which one it is
+    //ex: if(trumpCard == 1) {
+        //trumpPlayer.push('x');
+    //}
 }
 
 //Gives bot a random trump card
 function addTrumpBot() {
-
+        //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min; adjust these so they actually fit the normal cards you can receive)
+    //Randomly decide which trump card to choose, then add it to the deck based on which one it is
+    //ex: if(trumpCard == 1) {
+        //trumpBot.push('x');
+    //}
 }
 
 //Removes player's last card from their hand & adds it back into the deck
 function removeLast() {
-
+    //let removedPlayer = playerHand.pop();
+    //find some way to 
 }
 
 //Removes the opponent's last card & adds it back into the deck
