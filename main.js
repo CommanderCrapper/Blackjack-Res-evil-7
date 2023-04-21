@@ -5,7 +5,6 @@ let botHand = [];
 //Determines trump card stuff, like their inventory & the chance of getting a trump card
 let trumpBot = [];
 let trumpPlayer = [];
-let trumpChance;
 
 //The entire deck, numbered 1-11
 let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -129,10 +128,11 @@ function newCards() {
 
 //Tests to see if a player or bot draws a trump card
 function testTrump() {
-    //Math.floor(Math.random()
-    //if(trumpChance = some random number or number range) {
-        //return(trumpChance);
-    //}
+    let trumpChance = Math.floor(Math.random() * 26) + 1;
+    if(trumpChance == 1) {
+        //addTrump();
+    } else {
+    }
 }
 
 
