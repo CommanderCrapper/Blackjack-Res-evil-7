@@ -156,31 +156,67 @@ function addTrumpBot() {
 
 //Removes player's last card from their hand & adds it back into the deck
 function removeLast() {
-    //let removedPlayer = playerHand.pop();
-    //find some way to 
+    //let removedPlayerCard = playerHand.pop();
+    //find some way to put it back in the deck in the same place it was, maybe like
+    //if(removedPlayerCard = 2) {
+        //deck.splice(1, 0, 2);
+        //For context, 1 is the position, 0 is saying you want to add a number & not delete, then 2 is the actual object you want to put
+    //}
 }
 
 //Removes the opponent's last card & adds it back into the deck
 function removeOppLast() {
-
+    //let removedBotCard = playerHand.pop();
+    //find some way to put it back in the deck in the same place it was, maybe like
+    //if(removedBotCard = 2) {
+        //deck.splice(1, 0, 2);
+        //For context, 1 is the position, 0 is saying you want to add a number & not delete, then 2 is the actual object you want to put
+    //}
 }
 
 //Draws a 3 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw3() {
     //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
+    //if(deck has 3) {
+        //remove 3
+        //add it to the player's hand
+    //} else {
+        //remove trump card from inventory
+    //}
 }
 
 //Draws a 4 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw4() {
     //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
+    //if(deck has 4) {
+        //remove 4
+        //add it to the player's hand
+        //remove trump card from inventory
+    //} else {
+        //remove trump card from inventory
+    //}
 }
 
 //Draws a 5 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw5() {
     //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
+    //if(deck has 5) {
+        //remove 5
+        //add it to the player's hand
+        //remove trump card from inventory
+    //} else {
+        //remove trump card from inventory
+    //}
 }
 
 //Draws a 6 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw6() {
     //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
+    //if(deck has 6) {
+        //remove 6
+        //add it to the player's hand
+        //remove trump card from inventory
+    //} else {
+        //remove trump card from inventory
+    //}
 }
