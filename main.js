@@ -94,6 +94,7 @@ function endGame() {
     }
 }
 
+// let gameEndMessage = document.getElementById
 //Triggers when both player & bot stay, & player number is greater or bot number is over 21
 function winGame() {
     //show win message, displays play again button
