@@ -17,6 +17,10 @@ let botValue;
 let playerStatus;
 let botStatus;
 
+function updateScreen() {
+
+}
+
 //Adds a card to the player's hand
 function addPlayer() {
     testTrump();
@@ -33,10 +37,9 @@ function addPlayer() {
         }
     }
     i = i-1;
-    delete newCard[i];
-    //This may or may not work? I'm not 100% sure since it doesn't specify a position to put the 0 in. I could be overthinking it, however it's worth noting
-    deck.concat(0);
-    //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
+    deck.pop(i);
+    deck.splice(i, 0, 0);
+    //updateScreen();
 }
 
 //Player stays
@@ -71,10 +74,9 @@ function addBot() {
         }
     }
     i = i-1;
-    delete newCard[i];
-    //This may or may not work? I'm not 100% sure if this is the correct way to give a location to replace. I could be overthinking it, however it's worth noting
-    deck[i].concat(0);
-    //update the screen to represent this change, x/21 & demonstrate each individual card (look at how you did it in the previous blackjack project)
+    newCard.pop(i);
+    deck.splice(i, 1, 0);
+    //updateScreen();
 }
 
 //Ends the game when BOTH players have stayed
@@ -115,7 +117,7 @@ function newGame() {
     playerStatus = "";
     botStatus = "";
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
-    
+    //updateScreen();
 }
 
 function newCards() {
@@ -177,47 +179,52 @@ function removeOppLast() {
 
 //Draws a 3 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw3() {
-    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
-    //if(deck has 3) {
-        //remove 3
-        //add it to the player's hand
-    //} else {
-        //remove trump card from inventory
-    //}
+    //Is it 1 or 2 equal signs?
+    if(deck.includes(3) == true) {
+        playerHand.push(3);
+        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
+        //Although, then again I could probably use array.includes("trumpcardname") to find that out
+    } else {
+        //array.includes("trumpcardname");
+        //remove
+    }
 }
 
 //Draws a 4 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw4() {
-    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
-    //if(deck has 4) {
-        //remove 4
-        //add it to the player's hand
-        //remove trump card from inventory
-    //} else {
-        //remove trump card from inventory
-    //}
+    //Is it 1 or 2 equal signs?
+    if(deck.includes(4) == true) {
+        playerHand.push(4);
+        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
+        //Although, then again I could probably use array.includes("trumpcardname") to find that out
+    } else {
+        //array.includes("trumpcardname");
+        //remove
+    }
 }
 
 //Draws a 5 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw5() {
-    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
-    //if(deck has 5) {
-        //remove 5
-        //add it to the player's hand
-        //remove trump card from inventory
-    //} else {
-        //remove trump card from inventory
-    //}
+    //Is it 1 or 2 equal signs?
+    if(deck.includes(5) == true) {
+        playerHand.push(5);
+        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
+        //Although, then again I could probably use array.includes("trumpcardname") to find that out
+    } else {
+        //array.includes("trumpcardname");
+        //remove
+    }
 }
 
 //Draws a 6 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw6() {
-    //Look in the notebook on your desk for notes on searching an array for a certain item, I think you wrote something in there.
-    //if(deck has 6) {
-        //remove 6
-        //add it to the player's hand
-        //remove trump card from inventory
-    //} else {
-        //remove trump card from inventory
-    //}
+    //Is it 1 or 2 equal signs?
+    if(deck.includes(6) == true) {
+        playerHand.push(6);
+        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
+        //Although, then again I could probably use array.includes("trumpcardname") to find that out
+    } else {
+        //array.includes("trumpcardname");
+        //remove
+    }
 }
