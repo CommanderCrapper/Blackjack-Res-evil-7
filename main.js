@@ -47,10 +47,10 @@ function addPlayer() {
     i = i-1;
     deck.pop(i);
     deck.splice(i, 0, 0);
-    for(var i=0; i<200; i++) {
+    for(var i=0; i<playerHand.length; i++) {
         playerValue += +playerHand[i];
-        updateScreen();
     }
+    updateScreen();
 }
 
 //Player stays
