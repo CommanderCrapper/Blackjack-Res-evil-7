@@ -24,14 +24,9 @@ function updateScreen() {
     document.getElementById("playerTotal").innerHTML = playerValue;
 }
 
-newGame();
-
 //Adds a card to the player's hand
 function addPlayer() {
     testTrump();
-    //if(trumpChance = some random number or smth) {
-        //addTrump();
-    //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     playerHand.push(newCard);
     let i = newCard;
@@ -95,7 +90,11 @@ function addBot() {
 
 //Ends the game when BOTH players have stayed
 function endGame() {
-    if(playerValue > 21) {
+    if(playerValue > 21 && botValue > 21) {
+        tieGame();
+    } else if(playerValue == botValue) {
+        tieGame();
+    } else if(playerValue > 21) {
         loseGame();
     } else if(botValue > 21) {
         winGame();
@@ -103,11 +102,7 @@ function endGame() {
         winGame();
     } else if(playerValue < botValue && botValue < 21) {
         loseGame();
-    } else if(playerValue = botValue) {
-        tieGame();
-    } else if(playerValue > 21 && botValue > 21) {
-        tieGame();
-    }
+    } 
 }
 
 // let gameEndMessage = document.getElementById
@@ -130,13 +125,12 @@ function newGame() {
     let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     playerStatus = "";
     botStatus = "";
+    //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
     addPlayer();
     addPlayer();
     addBot();
     addBot();
     updateScreen();
-    //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
-    //updateScreen();
 }
 
 function newCards() {
@@ -160,7 +154,9 @@ function testTrump() {
 
 //Gives player a random trump card
 function addTrump() {
-    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min; adjust these so they actually fit the normal cards you can receive)
+    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min)
+    //Adjust these so they actually fit the normal cards you can receive
+
     //Randomly decide which trump card to choose, then add it to the deck based on which one it is
     //ex: if(trumpCard == 1) {
         //trumpPlayer.push('x');
