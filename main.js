@@ -18,14 +18,10 @@ let playerStatus;
 let botStatus;
 
 function updateScreen() {
-    // document.getElementById("botCards").innerHTML = botHand;
-    // document.getElementById("botTotal").innerHTML = botValue;
-    // document.getElementById("playerCards").innerHTML = playerHand;
-    // document.getElementById("playerTotal").innerHTML = playerValue;
-    for(i=0; i<botHand.length; i++) {
-        botValue = botValue + botHand[i];
-        // document.getElementById("botCards").innerHTML = document.getElementById("botCards").innerHTML + botHand[i];
-    }
+    document.getElementById("botCards").innerHTML = botHand;
+    document.getElementById("botTotal").innerHTML = botValue;
+    document.getElementById("playerCards").innerHTML = playerHand;
+    document.getElementById("playerTotal").innerHTML = playerValue;
 }
 
 //Adds a card to the player's hand
@@ -171,6 +167,17 @@ function addTrumpBot() {
     //ex: if(trumpCard == 1) {
         //trumpBot.push('x');
     //}
+}
+
+function viewTrumpDeck() {
+    //Fetch the trump cards of the player
+    //Display each one in an orderly list, or how it's displayed in RE7, your choice.
+    //for(i = 0; i < trumpCardSlot.length; i++) {
+    //trumpCardSlot[i] = trumpPlayer[i];
+    //}
+    //if(trumpCardSlot[i] is clicked) {
+        //Use the trump card in that slot. If there's nothing, then nothing happens.
+    //} 
 }
 
 //Removes player's last card from their hand & adds it back into the deck
