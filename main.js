@@ -131,6 +131,10 @@ function newGame() {
     let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     playerStatus = "";
     botStatus = "";
+    addPlayer();
+    addPlayer();
+    addBot();
+    addBot();
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
     //updateScreen();
 }
