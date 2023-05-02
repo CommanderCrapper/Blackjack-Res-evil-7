@@ -18,10 +18,14 @@ let playerStatus;
 let botStatus;
 
 function updateScreen() {
-    document.getElementById("botCards").innerHTML = botHand;
-    document.getElementById("botTotal").innerHTML = botValue;
-    document.getElementById("playerCards").innerHTML = playerHand;
-    document.getElementById("playerTotal").innerHTML = playerValue;
+    // document.getElementById("botCards").innerHTML = botHand;
+    // document.getElementById("botTotal").innerHTML = botValue;
+    // document.getElementById("playerCards").innerHTML = playerHand;
+    // document.getElementById("playerTotal").innerHTML = playerValue;
+    for(i=0; i<botHand.length; i++) {
+        botValue = botValue + botHand[i];
+        // document.getElementById("botCards").innerHTML = document.getElementById("botCards").innerHTML + botHand[i];
+    }
 }
 
 //Adds a card to the player's hand
