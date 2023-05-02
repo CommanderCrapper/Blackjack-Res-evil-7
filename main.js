@@ -23,7 +23,10 @@ function updateScreen() {
     document.getElementById("playerCards").innerHTML = playerHand;
     document.getElementById("playerTotal").innerHTML = playerValue;
 }
+
+newGame();
 updateScreen();
+
 //Adds a card to the player's hand
 function addPlayer() {
     testTrump();
