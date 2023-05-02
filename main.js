@@ -25,7 +25,6 @@ function updateScreen() {
 }
 
 newGame();
-updateScreen();
 
 //Adds a card to the player's hand
 function addPlayer() {
