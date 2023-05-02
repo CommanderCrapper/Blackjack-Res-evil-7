@@ -135,6 +135,7 @@ function newGame() {
     addPlayer();
     addBot();
     addBot();
+    updateScreen();
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
     //updateScreen();
 }
