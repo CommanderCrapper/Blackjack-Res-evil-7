@@ -17,6 +17,7 @@ let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 let playerStatus;
 let botStatus;
 
+//Updates the screen to properly represent all the updated values that were changed
 function updateScreen() {
     document.getElementById("botCards").innerHTML = botHand;
     document.getElementById("botTotal").innerHTML = botValue;
@@ -48,23 +49,7 @@ function addPlayer() {
     updateScreen();
 }
 
-//Player stays
-function playerStay() {
-    playerStatus = "stay";
-    if(playerStatus == "stay" && botStatus == "stay") {
-    endGame();
-    }
-}
-
-//Bot stays
-function botStay() {
-    botStatus = "stay";
-    if(playerStatus == "stay" && botStatus == "stay") {
-    endGame();
-    }
-}
-
-//Adds a card to the bot's hand
+//Adds a card to the bot's hand, & removes it from the deck
 function addBot() {
     testTrump();
     //if(trumpChance = some random number or smth) {
@@ -85,6 +70,51 @@ function addBot() {
     for(var i=0; i<200; i++) {
         playerValue += +playerHand[i];
     updateScreen();
+    }
+}
+
+//Determines what move the bot will make
+function botMove() {
+    //Something about not including this feels like it could cause issues. Look into the code more to be sure
+    // if(botStatus = "stay") {
+
+    // }
+    if(playerValue > 21) {
+        botStatus = "stay";
+    }    
+    if(botValue > 21 && x != y) {
+        //X & Y ARE PLACEHOLDER VALUES!
+        //What I plan on doing here is searching the trump card deck for a trump card that can remove their last card, hopefully making it lower or equal to 21.
+        //After which, the bot will stay.
+        botStatus = "stay";
+    } else {
+        botStatus = "stay";
+    }
+    if(botValue >= 15 && playerValue > botValue) {
+        //Heads(1)/tails(2). If heads, hit. If tails, stay.
+        if(coinFlip = 1) {
+            addBot();
+            botStatus = "active";
+        } else {
+            botStatus = "stay";
+        }
+    }
+    return botStatus;
+}
+
+//Player stays, checks to see if bot has stayed as well
+function playerStay() {
+    playerStatus = "stay";
+    if(playerStatus == "stay" && botStatus == "stay") {
+    endGame();
+    }
+}
+
+//Bot stays, checks to see if player has stayed as well
+function botStay() {
+    botStatus = "stay";
+    if(playerStatus == "stay" && botStatus == "stay") {
+    endGame();
     }
 }
 
@@ -172,6 +202,7 @@ function addTrumpBot() {
     //}
 }
 
+//Opens a menu that shows the player all the available trump cards in their deck
 function viewTrumpDeck() {
     //Fetch the trump cards of the player
     //Display each one in an orderly list, or how it's displayed in RE7, your choice.
@@ -180,6 +211,10 @@ function viewTrumpDeck() {
     //}
     //if(trumpCardSlot[i] is clicked) {
         //Use the trump card in that slot. If there's nothing, then nothing happens.
+        //Activate the card in question, use the function here
+        //Is there a way to assign trump cards to a specific place? like
+        //trumpCardSlot[x] = removeLast();
+        //trumpCardSlot[x];
     //} 
 }
 
