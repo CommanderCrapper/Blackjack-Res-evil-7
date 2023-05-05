@@ -32,15 +32,8 @@ function updateScreen() {
 function addPlayer() {
     testTrump();
     let newCard = deck[Math.floor(Math.random() * deck.length)];
-<<<<<<< HEAD
-    playerHand.push(newCard);
-    i = newCard;
-    if(i = 0) {
-        while (i = 0) {
-=======
     if(newCard = 0) {
         while (newCard = 0) {
->>>>>>> d089e49e5e5bcbeaa0781e6b9c4d8a82d2bae02c
             let newCard = deck[Math.floor(Math.random() * deck.length)];
             i = newCard;
         }
@@ -123,33 +116,6 @@ function botStay() {
     }
 }
 
-<<<<<<< HEAD
-//Adds a card to the bot's hand
-function addBot() {
-    testTrump();
-    //if(trumpChance = some random number or smth) {
-        //addTrump();
-    //}
-    let newCard = deck[Math.floor(Math.random() * deck.length)];
-    botHand.push(newCard);
-    i = newCard;
-    while(i = 0) {
-        let newCard = deck[Math.floor(Math.random() * deck.length)];
-        if(i != 0) {
-            botHand.push(newCard);
-        }
-    }
-    i = i-1;
-    newCard.pop(i);
-    deck.splice(i, 1, 0);
-    for(var i=0; i<200; i++) {
-        playerValue += +playerHand[i];
-    updateScreen();
-    }
-}
-
-=======
->>>>>>> d089e49e5e5bcbeaa0781e6b9c4d8a82d2bae02c
 //Ends the game when BOTH players have stayed
 function endGame() {
     if(playerValue > 21 && botValue > 21) {
