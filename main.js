@@ -32,11 +32,11 @@ function addPlayer() {
     //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     playerHand.push(newCard);
-    let i = newCard;
+    i = newCard;
     if(i = 0) {
         while (i = 0) {
             let newCard = deck[Math.floor(Math.random() * deck.length)];
-            let i = newCard;
+            i = newCard;
         }
     }
     if(i != 0) {
@@ -75,7 +75,7 @@ function addBot() {
     //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
     botHand.push(newCard);
-    let i = newCard;
+    i = newCard;
     while(i = 0) {
         let newCard = deck[Math.floor(Math.random() * deck.length)];
         if(i != 0) {
