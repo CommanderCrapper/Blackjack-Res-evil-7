@@ -11,12 +11,16 @@ let trumpBot = [];
 let trumpPlayer = [];
 
 //The entire deck, numbered 1-11
-let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 //Either active (hit last) or inactive (stayed)
 let playerStatus;
 let botStatus;
 
+//The random number chosen
+let randomNum;
+
+//Updates the screen to properly represent all the updated values that were changed
 function updateScreen() {
     document.getElementById("botCards").innerHTML = botHand;
     document.getElementById("botTotal").innerHTML = botValue;
@@ -27,31 +31,83 @@ function updateScreen() {
 //Adds a card to the player's hand
 function addPlayer() {
     testTrump();
-    //if(trumpChance = some random number or smth) {
-        //addTrump();
-    //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
+<<<<<<< HEAD
     playerHand.push(newCard);
     i = newCard;
     if(i = 0) {
         while (i = 0) {
+=======
+    if(newCard = 0) {
+        while (newCard = 0) {
+>>>>>>> d089e49e5e5bcbeaa0781e6b9c4d8a82d2bae02c
             let newCard = deck[Math.floor(Math.random() * deck.length)];
             i = newCard;
         }
-    }
-    if(i != 0) {
+    }else {
         playerHand.push(newCard);
     }
     i = i-1;
     deck.pop(i);
     deck.splice(i, 0, 0);
-    for(var i=0; i<200; i++) {
+    for(var i=0; i<playerHand.length; i++) {
         playerValue += +playerHand[i];
-        updateScreen();
+    }
+    updateScreen();
+}
+
+//Adds a card to the bot's hand, & removes it from the deck
+function addBot() {
+    testTrump();
+    let newCard = deck[Math.floor(Math.random() * deck.length)];
+    if(newCard = 0) {
+        while(newCard = 0) {
+            let newCard = deck[Math.floor(Math.random() * deck.length)];
+            let i = newCard;
+        } 
+    } else {
+        botHand.push(newCard);
+    }
+    i = i-1;
+    newCard.pop(i);
+    deck.splice(i, 1, 0);
+    for(var i=0; i<playerHand.length; i++) {
+        playerValue += +playerHand[i];
+    updateScreen();
     }
 }
 
-//Player stays
+//Determines what move the bot will make
+function botMove() {
+    //Something about not including this feels like it could cause issues. Look into the code more to be sure
+    // if(botStatus = "stay") {
+
+    // }
+    if(playerValue > 21) {
+        botStatus = "stay";
+    }    
+    if(botValue > 21 && x != y) {
+        //X & Y ARE PLACEHOLDER VALUES!
+        //What I plan on doing here is searching the trump card deck for a trump card that can remove their last card, hopefully making it lower or equal to 21.
+        //After which, the bot will stay.
+        botStatus = "stay";
+    } else {
+        botStatus = "stay";
+    }
+    if(botValue >= 15 && playerValue > botValue) {
+        //Heads(1)/tails(2). If heads, hit. If tails, stay.
+        let coinFlip = Math.floor(Math.random() * 2 - 1);
+        if(coinFlip = 1) {
+            addBot();
+            botStatus = "active";
+        } else {
+            botStatus = "stay";
+        }
+    }
+    return botStatus;
+}
+
+//Player stays, checks to see if bot has stayed as well
 function playerStay() {
     playerStatus = "stay";
     if(playerStatus == "stay" && botStatus == "stay") {
@@ -59,7 +115,7 @@ function playerStay() {
     }
 }
 
-//Bot stays
+//Bot stays, checks to see if player has stayed as well
 function botStay() {
     botStatus = "stay";
     if(playerStatus == "stay" && botStatus == "stay") {
@@ -67,6 +123,7 @@ function botStay() {
     }
 }
 
+<<<<<<< HEAD
 //Adds a card to the bot's hand
 function addBot() {
     testTrump();
@@ -91,9 +148,15 @@ function addBot() {
     }
 }
 
+=======
+>>>>>>> d089e49e5e5bcbeaa0781e6b9c4d8a82d2bae02c
 //Ends the game when BOTH players have stayed
 function endGame() {
-    if(playerValue > 21) {
+    if(playerValue > 21 && botValue > 21) {
+        tieGame();
+    } else if(playerValue == botValue) {
+        tieGame();
+    } else if(playerValue > 21) {
         loseGame();
     } else if(botValue > 21) {
         winGame();
@@ -101,11 +164,7 @@ function endGame() {
         winGame();
     } else if(playerValue < botValue && botValue < 21) {
         loseGame();
-    } else if(playerValue = botValue) {
-        tieGame();
-    } else if(playerValue > 21 && botValue > 21) {
-        tieGame();
-    }
+    } 
 }
 
 // let gameEndMessage = document.getElementById
@@ -123,13 +182,28 @@ function tieGame() {
     //Show tie message, displays play again button
 }
 
+//Fully resets deck, cards, etc.
+function fullReset() {
+    deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    playerHand = [];
+    botHand = [];
+    playerValue = 0;
+    botValue = 0;
+    playerStatus = "active";
+    botStatus = "active";
+}
+
 //Creates a new game, adds 2 cards to each player's hand
 function newGame() {
-    let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     playerStatus = "";
     botStatus = "";
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
-    //updateScreen();
+    addPlayer();
+    addPlayer();
+    addBot();
+    addBot();
+    updateScreen();
 }
 
 function newCards() {
@@ -153,7 +227,9 @@ function testTrump() {
 
 //Gives player a random trump card
 function addTrump() {
-    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min; adjust these so they actually fit the normal cards you can receive)
+    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min)
+    //Adjust these so they actually fit the normal cards you can receive
+
     //Randomly decide which trump card to choose, then add it to the deck based on which one it is
     //ex: if(trumpCard == 1) {
         //trumpPlayer.push('x');
@@ -167,6 +243,22 @@ function addTrumpBot() {
     //ex: if(trumpCard == 1) {
         //trumpBot.push('x');
     //}
+}
+
+//Opens a menu that shows the player all the available trump cards in their deck
+function viewTrumpDeck() {
+    //Fetch the trump cards of the player
+    //Display each one in an orderly list, or how it's displayed in RE7, your choice.
+    //for(i = 0; i < trumpCardSlot.length; i++) {
+    //trumpCardSlot[i] = trumpPlayer[i];
+    //}
+    //if(trumpCardSlot[i] is clicked) {
+        //Use the trump card in that slot. If there's nothing, then nothing happens.
+        //Activate the card in question, use the function here
+        //Is there a way to assign trump cards to a specific place? like
+        //trumpCardSlot[x] = removeLast();
+        //trumpCardSlot[x];
+    //} 
 }
 
 //Removes player's last card from their hand & adds it back into the deck

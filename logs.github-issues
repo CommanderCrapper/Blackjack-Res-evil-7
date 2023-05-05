@@ -2,6 +2,91 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "sick"
+    "value": "updateScreen function empty"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "winGame function empty"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "loseGame function empty"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "updateScreen function empty"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "addPlayer function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "addBot function missing code"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "winGame function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "loseGame function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "tieGame function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "newGame function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "addTrump function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "addTrumpBot function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "removeLast function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "removeOppLast function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "draw3 function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "draw4 function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "draw5 function missing code"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "draw6 function missing code"
   }
 ]
