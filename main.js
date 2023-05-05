@@ -72,17 +72,13 @@ function addBot() {
 
 //Determines what move the bot will make
 function botMove() {
-    //Something about not including this feels like it could cause issues. Look into the code more to be sure
-    // if(botStatus = "stay") {
-
-    // }
     if(playerValue > 21) {
         botStatus = "stay";
     }    
-    if(botValue > 21 && x != y) {
-        //X & Y ARE PLACEHOLDER VALUES!
-        //What I plan on doing here is searching the trump card deck for a trump card that can remove their last card, hopefully making it lower or equal to 21.
-        //After which, the bot will stay.
+    if(botValue > 21 && trumpBot.includes("removeLast")) {
+        removeOppLast();
+        let position = trumpBot.indexOf("removeLast");
+        trumpBot.pop(position);
         botStatus = "stay";
     } else {
         botStatus = "stay";
@@ -96,9 +92,8 @@ function botMove() {
         } else {
             botStatus = "stay";
         }
-    }
     return botStatus;
-}
+    }}
 
 //Player stays, checks to see if bot has stayed as well
 function playerStay() {
@@ -161,10 +156,7 @@ function fullReset() {
 
 //Creates a new game, adds 2 cards to each player's hand
 function newGame() {
-    let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    playerStatus = "";
-    botStatus = "";
-    //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
+    fullReset();
     addPlayer();
     addPlayer();
     addBot();
@@ -239,62 +231,87 @@ function removeLast() {
 
 //Removes the opponent's last card & adds it back into the deck
 function removeOppLast() {
-    //let removedBotCard = playerHand.pop();
-    //find some way to put it back in the deck in the same place it was, maybe like
-    //if(removedBotCard = 2) {
-        //deck.splice(1, 0, 2);
-        //For context, 1 is the position, 0 is saying you want to add a number & not delete, then 2 is the actual object you want to put
-    //}
+    let removedBotCard = botHand.pop();
+    let poppedCardPosition = removedBotCard + 1;
+    deck.splice(poppedCardPosition, 1, removedBotCard);
 }
 
 //Draws a 3 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw3() {
     //Is it 1 or 2 equal signs?
-    if(deck.includes(3) == true) {
-        playerHand.push(3);
-        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
-        //Although, then again I could probably use array.includes("trumpcardname") to find that out
-    } else {
-        //array.includes("trumpcardname");
-        //remove
+if(deck.includes(3) == true) {
+    playerHand.push(3);
+    playerHand.push(newCard);
+    i = i-1;
+    deck.pop(i);
+    deck.splice(i, 0, 0);
+    for(var i=0; i<playerHand.length; i++) {
+        playerValue += +playerHand[i];
+    updateScreen();
+    let position = trumpPlayer.indexOf("draw3");
+    trumpPlayer.pop(position);
+    }} else {
+        let position = trumpPlayer.indexOf("draw3");
+        trumpPlayer.pop(position);
+        }
     }
-}
 
 //Draws a 4 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw4() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(4) == true) {
         playerHand.push(4);
-        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
-        //Although, then again I could probably use array.includes("trumpcardname") to find that out
-    } else {
-        //array.includes("trumpcardname");
-        //remove
+        playerHand.push(newCard);
+        i = i-1;
+        deck.pop(i);
+        deck.splice(i, 0, 0);
+        for(var i=0; i<playerHand.length; i++) {
+            playerValue += +playerHand[i];
+        updateScreen();
+        let position = trumpPlayer.indexOf("draw4");
+        trumpPlayer.pop(position);
+        }} else {
+            let position = trumpPlayer.indexOf("draw4");
+            trumpPlayer.pop(position);
+        }
     }
-}
 
 //Draws a 5 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw5() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(5) == true) {
         playerHand.push(5);
-        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
-        //Although, then again I could probably use array.includes("trumpcardname") to find that out
-    } else {
-        //array.includes("trumpcardname");
-        //remove
+        playerHand.push(newCard);
+        i = i-1;
+        deck.pop(i);
+        deck.splice(i, 0, 0);
+        for(var i=0; i<playerHand.length; i++) {
+            playerValue += +playerHand[i];
+        updateScreen();
+        let position = trumpPlayer.indexOf("draw5");
+        trumpPlayer.pop(position);
+        }} else {
+            let position = trumpPlayer.indexOf("draw5");
+            trumpPlayer.pop(position);
+        }
     }
-}
 
 //Draws a 6 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw6() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(6) == true) {
         playerHand.push(6);
-        //How do I remove the trump card from the inventory? Removing it isn't necessarily the hard part, but rather the identification of where the trump card is.
-        //Although, then again I could probably use array.includes("trumpcardname") to find that out
-    } else {
-        //array.includes("trumpcardname");
-        //remove
+        playerHand.push(newCard);
+        i = i-1;
+        deck.pop(i);
+        deck.splice(i, 0, 0);
+        for(var i=0; i<playerHand.length; i++) {
+            playerValue += +playerHand[i];
+        updateScreen();
+        let position = trumpPlayer.indexOf("draw6");
+        trumpPlayer.pop(position);
+        }} else {
+            let position = trumpPlayer.indexOf("draw6");
+            trumpPlayer.pop(position);
+        }
     }
-}
