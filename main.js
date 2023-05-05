@@ -11,11 +11,14 @@ let trumpBot = [];
 let trumpPlayer = [];
 
 //The entire deck, numbered 1-11
-let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 //Either active (hit last) or inactive (stayed)
 let playerStatus;
 let botStatus;
+
+//The random number chosen
+let randomNum;
 
 //Updates the screen to properly represent all the updated values that were changed
 function updateScreen() {
@@ -29,15 +32,12 @@ function updateScreen() {
 function addPlayer() {
     testTrump();
     let newCard = deck[Math.floor(Math.random() * deck.length)];
-    playerHand.push(newCard);
-    let i = newCard;
-    if(i = 0) {
-        while (i = 0) {
+    if(newCard = 0) {
+        while (newCard = 0) {
             let newCard = deck[Math.floor(Math.random() * deck.length)];
             let i = newCard;
         }
-    }
-    if(i != 0) {
+    }else {
         playerHand.push(newCard);
     }
     i = i-1;
@@ -52,22 +52,19 @@ function addPlayer() {
 //Adds a card to the bot's hand, & removes it from the deck
 function addBot() {
     testTrump();
-    //if(trumpChance = some random number or smth) {
-        //addTrump();
-    //}
     let newCard = deck[Math.floor(Math.random() * deck.length)];
-    botHand.push(newCard);
-    let i = newCard;
-    while(i = 0) {
-        let newCard = deck[Math.floor(Math.random() * deck.length)];
-        if(i != 0) {
-            botHand.push(newCard);
-        }
+    if(newCard = 0) {
+        while(newCard = 0) {
+            let newCard = deck[Math.floor(Math.random() * deck.length)];
+            let i = newCard;
+        } 
+    } else {
+        botHand.push(newCard);
     }
     i = i-1;
     newCard.pop(i);
     deck.splice(i, 1, 0);
-    for(var i=0; i<200; i++) {
+    for(var i=0; i<playerHand.length; i++) {
         playerValue += +playerHand[i];
     updateScreen();
     }
@@ -92,6 +89,7 @@ function botMove() {
     }
     if(botValue >= 15 && playerValue > botValue) {
         //Heads(1)/tails(2). If heads, hit. If tails, stay.
+        let coinFlip = Math.floor(Math.random() * 2 - 1);
         if(coinFlip = 1) {
             addBot();
             botStatus = "active";
@@ -150,9 +148,20 @@ function tieGame() {
     //Show tie message, displays play again button
 }
 
+//Fully resets deck, cards, etc.
+function fullReset() {
+    deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    playerHand = [];
+    botHand = [];
+    playerValue = 0;
+    botValue = 0;
+    playerStatus = "active";
+    botStatus = "active";
+}
+
 //Creates a new game, adds 2 cards to each player's hand
 function newGame() {
-    let deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     playerStatus = "";
     botStatus = "";
     //Reset all values, RESET THE DECK/HANDS/VALUES, hide win/loss/tie message, then draw another 2 to start with
