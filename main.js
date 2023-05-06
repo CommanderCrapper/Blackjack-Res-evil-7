@@ -175,8 +175,8 @@ function newCards() {
 
 //Tests to see if a player or bot draws a trump card
 function testTrump() {
-    let trumpChance = Math.floor(Math.random() * 26) + 1;
-    if(trumpChance == 1) {
+    let trumpChance = Math.floor(Math.random() * 27) + 1;
+    if(trumpChance > 17) {
         addTrump();
     } else {
     }
@@ -185,13 +185,25 @@ function testTrump() {
 
 //Gives player a random trump card
 function addTrump() {
-    //let trumpCard = Math.floor(Math.random() * 26) + 1; (26 = max, 1 = min)
-    //Adjust these so they actually fit the normal cards you can receive
-
-    //Randomly decide which trump card to choose, then add it to the deck based on which one it is
-    //ex: if(trumpCard == 1) {
-        //trumpPlayer.push('x');
-    //}
+    let trumpList = ["draw3", "draw4", "draw5", "draw6", "draw7", "remove", "return", "perfectDraw"];
+    let trumpDeterminant = Math.floor(Math.random() * 7);
+    if(trumpDeterminant = 0) {
+        trumpPlayer.push(trumpList[0]);
+    } else if(trumpDeterminant = 1) {
+        trumpPlayer.push(trumpList[1]);
+    } else if(trumpDeterminant = 2) {
+        trumpPlayer.push(trumpList[2]);
+    } else if(trumpDeterminant = 3) {
+        trumpPlayer.push(trumpList[3]);
+    } else if(trumpDeterminant = 4) {
+        trumpPlayer.push(trumpList[4]);
+    } else if(trumpDeterminant = 5) {
+        trumpPlayer.push(trumpList[5]);
+    } else if(trumpDeterminant = 6) {
+        trumpPlayer.push(trumpList[6]);
+    } else if(trumpDeterminant = 7) {
+        trumpPlayer.push(trumpList[7]);
+    }
 }
 
 //Gives bot a random trump card
@@ -241,7 +253,6 @@ function draw3() {
     //Is it 1 or 2 equal signs?
 if(deck.includes(3) == true) {
     playerHand.push(3);
-    playerHand.push(newCard);
     i = i-1;
     deck.pop(i);
     deck.splice(i, 0, 0);
@@ -261,7 +272,6 @@ function draw4() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(4) == true) {
         playerHand.push(4);
-        playerHand.push(newCard);
         i = i-1;
         deck.pop(i);
         deck.splice(i, 0, 0);
@@ -281,7 +291,6 @@ function draw5() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(5) == true) {
         playerHand.push(5);
-        playerHand.push(newCard);
         i = i-1;
         deck.pop(i);
         deck.splice(i, 0, 0);
@@ -301,7 +310,6 @@ function draw6() {
     //Is it 1 or 2 equal signs?
     if(deck.includes(6) == true) {
         playerHand.push(6);
-        playerHand.push(newCard);
         i = i-1;
         deck.pop(i);
         deck.splice(i, 0, 0);
@@ -315,3 +323,20 @@ function draw6() {
             trumpPlayer.pop(position);
         }
     }
+
+function draw7() {
+    if(deck.includes(7) == true) {
+        playerHand.push(7);
+        i = i-1;
+        deck.pop(i);
+        deck.splice(i, 0, 0,);
+        for(var i=0; i<playerHand.length; i++) {
+            playerValue += +playerHand[i];
+            updateScreen();
+            let position = trumpPlayer.indexOf("draw6");
+            trumpPlayer.pop(position);
+        }} else {
+            let position = trumpPlayer.indexOf("draw6");
+            trumpPlayer.pop(position);
+    }
+}

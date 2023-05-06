@@ -72,21 +72,16 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "draw3 function missing code"
+    "value": "rename removeOppLast to remove"
   },
   {
     "kind": 1,
     "language": "markdown",
-    "value": "draw4 function missing code"
+    "value": "rename removeLast to return"
   },
   {
     "kind": 1,
     "language": "markdown",
-    "value": "draw5 function missing code"
-  },
-  {
-    "kind": 1,
-    "language": "markdown",
-    "value": "draw6 function missing code"
+    "value": "add perfectDraw function"
   }
 ]
