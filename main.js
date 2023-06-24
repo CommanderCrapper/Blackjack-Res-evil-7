@@ -187,6 +187,10 @@ function testTrump() {
 function addTrump() {
     let trumpList = ["draw3", "draw4", "draw5", "draw6", "draw7", "remove", "return", "perfectDraw"];
     let trumpDeterminant = Math.floor(Math.random() * 7);
+
+    //trumpPlayer.push(trumpList[trumpDeterminant]); ???????
+    //Would this work? Maybe? I'm not entirely sure.
+    
     if(trumpDeterminant = 0) {
         trumpPlayer.push(trumpList[0]);
     } else if(trumpDeterminant = 1) {
@@ -251,7 +255,7 @@ function removeOppLast() {
 //Draws a 3 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw3() {
     //Is it 1 or 2 equal signs?
-if(deck.includes(3) == true) {
+if(deck.includes(3) === true) {
     playerHand.push(3);
     i = i-1;
     deck.pop(i);
@@ -270,7 +274,7 @@ if(deck.includes(3) == true) {
 //Draws a 4 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw4() {
     //Is it 1 or 2 equal signs?
-    if(deck.includes(4) == true) {
+    if(deck.includes(4) === true) {
         playerHand.push(4);
         i = i-1;
         deck.pop(i);
@@ -289,7 +293,7 @@ function draw4() {
 //Draws a 5 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw5() {
     //Is it 1 or 2 equal signs?
-    if(deck.includes(5) == true) {
+    if(deck.includes(5) === true) {
         playerHand.push(5);
         i = i-1;
         deck.pop(i);
@@ -308,7 +312,7 @@ function draw5() {
 //Draws a 6 from the deck if not in either player's hands. If it is, then this card is discarded & nothing is drawn.
 function draw6() {
     //Is it 1 or 2 equal signs?
-    if(deck.includes(6) == true) {
+    if(deck.includes(6) === true) {
         playerHand.push(6);
         i = i-1;
         deck.pop(i);
@@ -325,7 +329,7 @@ function draw6() {
     }
 
 function draw7() {
-    if(deck.includes(7) == true) {
+    if(deck.includes(7) === true) {
         playerHand.push(7);
         i = i-1;
         deck.pop(i);
@@ -340,3 +344,27 @@ function draw7() {
             trumpPlayer.pop(position);
     }
 }
+
+//ENEFY'S CODE REPLACEMENT (Find where this is & replace it in the actual code)
+
+// function draw(int number) {
+//     //Is it 1 or 2 equal signs? it's three (:   ===
+   
+//     if (number < 3 && number > 7){
+//     return "You gotta use a number from 1-7"; // just print to the console or smth that you gotta use 1 to 7 for debugging in case somethings fucked
+//     }
+//     if(deck.includes(number) === true) {
+//         playerHand.push(number);
+//         i = i-1;
+//         deck.pop(i);
+//         deck.splice(i, 0, 0);
+//         for(var i=0; i<playerHand.length; i++) {
+//             playerValue += +playerHand[i];
+//         updateScreen();
+//         let position = trumpPlayer.indexOf("draw %i", number);
+//         trumpPlayer.pop(position);
+//         }} else {
+//             let position = trumpPlayer.indexOf("draw %i", number);
+//             trumpPlayer.pop(position);
+//         }
+//     }
